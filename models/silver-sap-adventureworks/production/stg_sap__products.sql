@@ -6,7 +6,7 @@ with
             , cast(productmodelid as string) as product_model_id
             , cast(name as string) as product_name
             , cast(productnumber as string) as product_number
-            --, cast(makeflag as boolean) as is_product_manufactured
+            , cast(makeflag as string) as is_product_manufactured
             --, color 
             --, safetystocklevel 
             --, reorderpoint
