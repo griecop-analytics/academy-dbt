@@ -1,0 +1,83 @@
+version: 2
+sources:
+  - name: sap
+    description: SAP source from the company Adventure Works
+    schema: sap_adw
+    tables:
+      - name: address
+        description: to be finished
+        columns:
+          - name: addressid
+            tests:
+              - unique
+              - not_null 
+
+      - name: stateprovince
+        description: to be finished
+        columns:
+          - name: stateprovinceid
+            tests:
+              - unique
+              - not_null 
+          - name: countryregioncode
+            tests:
+              - not_null 
+
+      - name: countryregion
+        description: to be finished
+        columns:
+          - name: countryregioncode
+            tests:
+              - unique
+              - not_null 
+
+      - name: businessentityaddress
+        description: to be finished
+        columns:
+          - name: businessentityid
+            tests:
+              - not_null 
+
+      - name: addresstype
+        description: to be finished
+        columns:
+          - name: addresstypeid
+            tests:
+              - unique
+              - not_null 
+
+      - name: person
+        description: to be finished
+        columns:
+          - name: businessentityid
+            tests:
+              - unique
+              - not_null 
+
+      - name: businessentitycontact
+        description: to be finished
+        columns:
+          - name: businessentityid
+            tests:
+              - unique
+              - not_null 
+          - name: personid
+            tests:
+              - unique
+              - not_null
+
+      - name: contacttype
+        description: to be finished
+        columns:
+          - name: contacttypeid
+            tests:
+              - unique
+              - not_null              
+
+      - name: businessentity
+        description: to be finished
+        columns:
+          - name: businessentityid
+            tests:
+              - unique
+              - not_null 
