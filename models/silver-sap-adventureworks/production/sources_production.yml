@@ -5,9 +5,29 @@ sources:
     schema: sap_adw
     tables:
       - name: product
-        description: Items sold or employed in the production of items sold.
+        description: to be finished
         columns:
           - name: productid
             tests:
               - unique
               - not_null 
+
+      - name: productsubcategory
+        description: to be finished
+        columns:
+          - name: productsubcategoryid
+            tests:
+              - unique
+              - not_null 
+          - name: productcategoryid
+            tests:
+              - not_null 
+
+      - name: productcategory
+        description: to be finished
+        columns:
+          - name: productcategoryid
+            tests:
+              - unique
+              - not_null 
+        
