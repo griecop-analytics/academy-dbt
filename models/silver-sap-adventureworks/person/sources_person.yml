@@ -49,7 +49,35 @@ sources:
       - name: person
         description: to be finished
         columns:
-          - name: bisinessentityid
+          - name: businessentityid
+            tests:
+              - unique
+              - not_null 
+
+      - name: businessentitycontact
+        description: to be finished
+        columns:
+          - name: businessentityid
+            tests:
+              - unique
+              - not_null 
+          - name: personid
+            tests:
+              - unique
+              - not_null
+
+      - name: contacttype
+        description: to be finished
+        columns:
+          - name: contacttypeid
+            tests:
+              - unique
+              - not_null              
+
+      - name: businessentity
+        description: to be finished
+        columns:
+          - name: businessentityid
             tests:
               - unique
               - not_null 

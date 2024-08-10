@@ -1,0 +1,13 @@
+version: 2
+sources:
+  - name: sap
+    description: SAP source from the company Adventure Works
+    schema: sap_adw
+    tables:
+      - name: store
+        description: to be finished
+        columns:
+          - name: businessentityid
+            tests:
+              - unique
+              - not_null 
