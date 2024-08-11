@@ -30,4 +30,12 @@ sources:
             tests:
               - unique
               - not_null 
+
+      - name: productmodel
+        description: to be finished
+        columns:
+          - name: productmodelid
+            tests:
+              - unique
+              - not_null 
         
