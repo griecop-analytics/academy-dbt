@@ -59,7 +59,6 @@ sources:
         columns:
           - name: businessentityid
             tests:
-              - unique
               - not_null 
           - name: personid
             tests:

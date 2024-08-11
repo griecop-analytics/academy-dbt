@@ -62,7 +62,7 @@ sources:
       - name: salesorderdetail
         description: to be finished
         columns:
-          - name: customerid
+          - name: salesorderdetailid
             tests:
               - unique
               - not_null 
