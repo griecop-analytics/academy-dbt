@@ -22,7 +22,7 @@ with
             , cast(style as string) as product_style
             , date(sellstartdate) as product_sellstart_date
             , date(sellenddate) as product_sellend_date
-            , cast(finishedgoodsflag as boolean) as is_product_salable
+            , cast(finishedgoodsflag as string) as is_product_salable
             --, discontinueddate
             --, rowguid
             --, modifieddate 
