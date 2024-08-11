@@ -1,0 +1,12 @@
+with
+    sales_reasons_source as (
+        select
+            cast(salesreasonid as string) as sales_reason_id
+            , cast(name as string) as sales_reason_name
+            , cast(reasontype as string) as sales_reason_type
+            --, modifieddate
+        from {{ source('sap', 'salesreason') }}
+    )
+
+select *
+from sales_reasons_source

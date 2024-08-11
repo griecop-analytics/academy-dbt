@@ -1,0 +1,68 @@
+version: 2
+sources:
+  - name: sap
+    description: SAP source from the company Adventure Works
+    schema: sap_adw
+    tables:
+      - name: store
+        description: to be finished
+        columns:
+          - name: businessentityid
+            tests:
+              - unique
+              - not_null 
+
+      - name: customer
+        description: to be finished
+        columns:
+          - name: customerid
+            tests:
+              - unique
+              - not_null 
+
+      - name: salesperson
+        description: to be finished
+        columns:
+          - name: businessentityid
+            tests:
+              - unique
+              - not_null 
+
+      - name: creditcard
+        description: to be finished
+        columns:
+          - name: creditcardid
+            tests:
+              - unique
+              - not_null
+
+      - name: salesorderheadersalesreason
+        description: to be finished
+        columns:
+          - name: salesorderid
+            tests:
+              - not_null
+
+      - name: salesreason
+        description: to be finished
+        columns:
+          - name: salesreasonid
+            tests:
+              - unique
+              - not_null 
+
+      - name: salesorderheader
+        description: to be finished
+        columns:
+          - name: salesorderid
+            tests:
+              - unique
+              - not_null 
+      
+      - name: salesorderdetail
+        description: to be finished
+        columns:
+          - name: salesorderdetailid
+            tests:
+              - unique
+              - not_null 
