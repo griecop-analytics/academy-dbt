@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: dim_sales_reasons
+    description: To be completed
+    columns:
+      - name: sales_reason_sk
+        description: To be completed
+        tests: 
+          - unique
+          - not_null
+
+      - name: sales_order_id
+        description: To be completed
+        tests:
+          - not_null
+
+      - name: sales_reason_id
+        description: To be completed
+
+      - name: sales_reason_name
+        description: To be completed
+
+      - name: sales_reason_type                      
+        description: To be completed
