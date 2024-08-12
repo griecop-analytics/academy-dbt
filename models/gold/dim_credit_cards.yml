@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: dim_credit_cards
+    description: To be completed
+    columns:
+      - name: credit_card_sk
+        description: To be completed
+        tests: 
+          - unique
+          - not_null
+
+      - name: credit_card_id
+        description: To be completed
+        tests:
+          - not_null
+
+      - name: credit_card_type
+        description: To be completed
