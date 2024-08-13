@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: dim_sales_persons
+    description: To be completed
+    columns:
+      - name: sales_person_sk
+        description: To be completed
+        tests: 
+          - unique
+          - not_null
+
+      - name: sales_person_id
+        description: To be completed
+        tests:
+          - not_null
+
+      - name: full_name
+        description: To be completed
+
+      - name: person_type
+        description: To be completed
+
+      - name: commission_pct
+        description: To be completed
+
+      - name: territory_id
+        description: To be completed
+
+      - name: territory_name
+        description: To be completed
+
+      - name: country_region_code
+        description: To be completed
+
+      - name: territory_group
+        description: To be completed
