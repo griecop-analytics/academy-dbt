@@ -28,6 +28,11 @@ with
             , stg_orders.order_tax_amount
             , stg_orders.order_freight
             , stg_orders.order_total_due
+            , stg_orders.bill_to_address_id
+            , stg_orders.ship_to_address_id
+            , stg_orders.ship_method_id
+            , stg_orders.order_ship_date
+            , stg_orders.order_due_date
         from stg_order_details
         left join stg_orders on
             stg_order_details.order_id = stg_orders.order_id
