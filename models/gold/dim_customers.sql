@@ -1,0 +1,29 @@
+with
+    int_customers as (
+        select *
+        from {{ ref('int_customers') }}
+    )
+
+    , select_columns as (
+        select
+            customer_id
+            , person_id
+            , store_id
+            , sales_person_id
+            , case
+                when store_id is null
+                    then full_name
+                else store_name
+            end as customer_name
+            , person_type
+            , territory_id
+            , country_region_code
+            , country_region_name
+            , state_province_code
+            , state_province_name
+            , address_city
+        from int_customers
+    )
+
+select *
+from select_columns
