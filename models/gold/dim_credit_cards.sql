@@ -1,15 +1,15 @@
 with
-    stg_credit_cards as (
+    int_credit_cards as (
         select *
-        from {{ ref('stg_sap__credit_cards') }}
+        from {{ ref('int_credit_cards') }}
     )
 
-    , sk_generate as (
+    , select_columns as (
         select
-            sha256(concat('|', credit_card_id)) as credit_card_sk
-            , *
-        from stg_credit_cards
+            credit_card_id
+            , credit_card_type
+        from int_credit_cards
     )
 
 select *
-from sk_generate
+from select_columns
