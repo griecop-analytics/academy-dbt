@@ -31,5 +31,12 @@ with
             stg_sales_persons.territory_id = stg_sales_territories.territory_id
         )
 
+    , create_sk as (
+        select
+            {{ dbt_utils.generate_surrogate_key(['sales_person_id']) }} as sales_person_sk
+            , *
+        from join_tables
+    )
+
 select *
-from join_tables
+from create_sk

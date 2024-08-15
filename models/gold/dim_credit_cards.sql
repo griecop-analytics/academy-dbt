@@ -11,5 +11,12 @@ with
         from int_credit_cards
     )
 
+    , create_sk as (
+        select
+            {{ dbt_utils.generate_surrogate_key(['credit_card_id']) }} as credit_card_sk
+            , *
+        from select_columns
+    )
+
 select *
-from select_columns
+from create_sk
