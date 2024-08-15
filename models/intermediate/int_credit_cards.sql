@@ -1,14 +1,14 @@
 with
-    int_credit_cards as (
+    stg_credit_cards as (
         select *
-        from {{ ref('int_credit_cards') }}
+        from {{ ref('stg_sap__credit_cards') }}
     )
 
     , select_columns as (
-        select
+        select  
             credit_card_id
             , credit_card_type
-        from int_credit_cards
+        from stg_credit_cards
     )
 
 select *
