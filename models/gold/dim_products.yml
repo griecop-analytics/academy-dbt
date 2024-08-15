@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: dim_products
+    description: To be completed
+    columns:
+      - name: product_sk
+        description: To be completed
+        tests: 
+          - unique
+          - not_null
+
+      - name: product_id
+        description: To be completed
+        tests:
+          - not_null
+
+      - name: product_subcategory_id
+        description: To be completed
+
+      - name: product_category_id
+        description: To be completed
+
+      - name: product_model_id
+        description: To be completed
+
+      - name: product_name
+        description: To be completed
+
+      - name: product_model_name
+        description: To be completed
+
+      - name: product_subcategory_name
+        description: To be completed
+
+      - name: product_category_name
+        description: To be completed
+
+      - name: product_standardcost
+        description: To be completed

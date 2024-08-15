@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: To be completed
+    columns:
+      - name: customer_sk
+        description: To be completed
+        tests: 
+          - unique
+          - not_null
+
+      - name: customer_id
+        description: To be completed
+        tests:
+          - not_null
+
+      - name: person_id
+        description: To be completed
+
+      - name: store_id
+        description: To be completed
+
+      - name: sales_person_id
+        description: To be completed
+
+      - name: customer_name
+        description: To be completed
+
+      - name: person_type
+        description: To be completed
+
+      - name: territory_id
+        description: To be completed
+
+      - name: country_region_code
+        description: To be completed
+        
+      - name: country_region_name
+        description: To be completed
+        
+      - name: state_province_code
+        description: To be completed
+        
+      - name: state_province_name
+        description: To be completed
+        
+      - name: address_city
+        description: To be completed
+        
