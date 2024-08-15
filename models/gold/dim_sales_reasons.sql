@@ -13,5 +13,12 @@ with
         from int_sales_reasons
     )
 
+    , create_sk as (
+        select
+            {{ dbt_utils.generate_surrogate_key(['sales_order_id', 'sales_reason_id']) }} as sales_reason_sk
+            , *
+        from select_columns
+    )
+
 select *
-from select_columns
+from create_sk

@@ -18,5 +18,12 @@ with
         from int_products
     )
 
+    , create_sk as (
+        select
+            {{ dbt_utils.generate_surrogate_key(['product_id']) }} as product_sk
+            , *
+        from select_columns
+    )
+
 select *
-from select_columns
+from create_sk

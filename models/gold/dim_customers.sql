@@ -25,5 +25,12 @@ with
         from int_customers
     )
 
+    , create_sk as (
+        select
+            {{ dbt_utils.generate_surrogate_key(['customer_id']) }} as customer_sk
+            , *
+        from select_columns
+    )
+
 select *
-from select_columns
+from create_sk
