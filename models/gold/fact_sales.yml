@@ -1,0 +1,66 @@
+version: 2
+
+models:
+  - name: fact_sales
+    description: To be completed
+    columns:
+      - name: sales_sk
+        description: To be completed
+        tests: 
+          - unique
+          - not_null
+
+      - name: order_id
+        description: To be completed
+        tests:
+          - not_nul            
+
+      - name: order_detail_id
+        description: To be completed
+        tests:
+          - not_nul  
+
+      - name: territory_id
+        description: To be completed
+
+      - name: customer_fk
+        description: To be completed
+
+      - name: sales_person_fk
+        description: To be completed
+
+      - name: credit_card_fk
+        description: To be completed
+
+      - name: product_fk
+        description: To be completed
+
+      - name: order_status
+        description: To be completed
+
+      - name: is_online_order
+        description: To be completed
+
+      - name: order_date
+        description: To be completed
+
+      - name: order_quantity
+        description: To be completed
+
+      - name: product_unit_price
+        description: To be completed
+
+      - name: unit_price_discount_pct
+        description: To be completed
+
+      - name: net_sales
+        description: To be completed
+
+      - name: pondered_tax_amount
+        description: To be completed
+
+      - name: pondered_freight
+        description: To be completed
+
+      - name: gross_sales
+        description: To be completed
