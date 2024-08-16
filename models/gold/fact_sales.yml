@@ -13,12 +13,12 @@ models:
       - name: order_id
         description: To be completed
         tests:
-          - not_nul            
+          - not_null            
 
       - name: order_detail_id
         description: To be completed
         tests:
-          - not_nul  
+          - not_null  
 
       - name: territory_id
         description: To be completed

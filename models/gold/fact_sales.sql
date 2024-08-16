@@ -83,7 +83,7 @@ with
         from join_tables
     )
 
-    , select_columns as (
+    , selected_columns as (
         select
             order_id
             , order_detail_id
@@ -105,12 +105,12 @@ with
         from included_metrics
     )
 
-    , create_sk as (
+    , created_sk as (
         select
             {{ dbt_utils.generate_surrogate_key(['order_id', 'order_detail_id']) }} as sales_sk
             , *
-        from select_columns
+        from selected_columns
     )
 
 select *
-from create_sk
+from created_sk
