@@ -101,6 +101,7 @@ with
             , net_sales
             , pondered_tax_amount
             , pondered_freight
+            , (net_sales + pondered_tax_amount + pondered_freight) as due_sales
             , (order_quantity * product_unit_price + pondered_tax_amount + pondered_freight) as gross_sales
         from included_metrics
     )
