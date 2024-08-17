@@ -24,6 +24,11 @@ with
         from {{ ref('dim_sales_persons') }}
     )
 
+    , dim_sales_reasons as (
+        select *
+        from {{ ref('dim_sales_reasons') }}
+    )
+
     , join_tables as (
         select
             int_sales.order_id
@@ -32,6 +37,7 @@ with
             , dim_customers.customer_sk as customer_fk
             , dim_sales_persons.sales_person_sk as sales_person_fk
             , dim_credit_cards.credit_card_sk as credit_card_fk
+            , dim_sales_reasons.sales_reason_sk as sales_reason_fk
             , int_sales.order_status
             , int_sales.is_online_order
             , int_sales.order_date
@@ -45,16 +51,17 @@ with
             , int_sales.order_tax_amount
             , int_sales.order_freight
             , int_sales.order_quantity * int_sales.product_unit_price * (1 - int_sales.unit_price_discount_pct / 100) as net_sales
-            , sum(int_sales.order_quantity) over(partition by int_sales.order_id) as total_order_quantity
         from int_sales
         left join dim_credit_cards on
-            int_sales.credit_card_id = dim_credit_cards.credit_card_id
+            int_sales.order_id = dim_credit_cards.order_id
         left join dim_customers on  
             int_sales.customer_id = dim_customers.customer_id
         left join dim_products on 
             int_sales.product_id = dim_products.product_id
         left join dim_sales_persons on
             int_sales.sales_person_id = dim_sales_persons.sales_person_id
+        left join dim_sales_reasons on
+            int_sales.order_id = dim_sales_reasons.order_id
 
     )
 
@@ -66,6 +73,7 @@ with
             , customer_fk
             , sales_person_fk
             , credit_card_fk
+            , sales_reason_fk
             , product_fk
             , order_status
             , is_online_order
@@ -91,6 +99,7 @@ with
             , customer_fk
             , sales_person_fk
             , credit_card_fk
+            , sales_reason_fk
             , product_fk
             , order_status
             , is_online_order
