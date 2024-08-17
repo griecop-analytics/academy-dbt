@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: agg_sales_salespersons_territories
+    description: To be completed
+    columns:
+      - name: sales_person_fk
+        description: To be completed
+        tests: 
+          - unique
+          - not_null
+
+      - name: territory_id
+        description: To be completed 
+
+      - name: order_date
+        description: To be completed 
+
+      - name: reference_month_year
+        description: To be completed 
+
+      - name: total_orders
+        description: To be completed 
+
+      - name: total_products
+        description: To be completed 
+
+      - name: net_sales_total
+        description: To be completed 
+
+      - name: gross_sales_total
+        description: To be completed 
+
+      - name: due_sales_total
+        description: To be completed 
