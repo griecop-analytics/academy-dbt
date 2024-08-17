@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: dim_dates
+    description: To be completed
+    columns:
+      - name: metric_date
+        description: To be completed
+        tests: 
+          - unique
+          - not_null
+
+      - name: week_day
+        description: To be completed
+
+      - name: day_name
+        description: To be completed
+
+      - name: month_number
+        description: To be completed
+
+      - name: month_name
+        description: To be completed
+
+      - name: month_abrev
+        description: To be completed
+
+      - name: quarter
+        description: To be completed
+
+      - name: quarter_name
+        description: To be completed
+
+      - name: semester
+        description: To be completed
+
+      - name: semester_name
+        description: To be completed
+
+      - name: date_year
+        description: To be completed
+
+      - name: day_month
+        description: To be completed
+
+      - name: month_year
+        description: To be completed
