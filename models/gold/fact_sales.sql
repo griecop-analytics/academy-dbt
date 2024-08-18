@@ -88,6 +88,26 @@ with
             , sum(order_quantity) over(partition by order_id) as total_order_quantity
             , (order_quantity * product_unit_price * (1 - unit_price_discount_pct / 100)/order_subtotal * order_tax_amount) as pondered_tax_amount
             , (order_quantity * product_unit_price * (1 - unit_price_discount_pct / 100)/order_subtotal * order_freight) as pondered_freight
+            , case 
+                when order_date = first_value(order_date) over (
+                    partition by customer_fk
+                    order by order_date) 
+                then true
+                else false 
+            end as is_first_purchase
+            , case
+                when order_date = last_value(order_date)
+                    over (
+                        partition by customer_fk 
+                        order by order_date 
+                        rows between unbounded preceding and unbounded following)
+                then date_diff(
+                    (select max(order_date) from join_tables),
+                    order_date,
+                    day
+                )
+                else null 
+            end as days_since_last_purchase
         from join_tables
     )
 
@@ -112,6 +132,8 @@ with
             , pondered_freight
             , (net_sales + pondered_tax_amount + pondered_freight) as due_sales
             , (order_quantity * product_unit_price + pondered_tax_amount + pondered_freight) as gross_sales
+            , is_first_purchase
+            , days_since_last_purchase
         from included_metrics
     )
 

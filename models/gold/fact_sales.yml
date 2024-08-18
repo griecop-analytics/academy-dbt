@@ -62,5 +62,14 @@ models:
       - name: pondered_freight
         description: To be completed
 
+      - name: due_sales
+        description: To be completed
+
       - name: gross_sales
+        description: To be completed
+
+      - name: is_first_purchase
+        description: To be completed
+
+      - name: days_since_last_purchase
         description: To be completed
