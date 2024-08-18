@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: dim_territories
+    description: To be completed
+    columns:
+      - name: territory_sk
+        description: To be completed
+        tests: 
+          - unique
+          - not_null
+
+      - name: territory_id
+        description: To bem completed
+
+      - name: territory_name
+        description: To bem completed
+
+      - name: territory_group
+        description: To bem completed
+
+      - name: country_region_code
+        description: To bem completed
+
+      - name: country_region_name
+        description: To bem completed
+
+      - name: state_province_code
+        description: To bem completed
+
+      - name: state_province_name
+        description: To bem completed
