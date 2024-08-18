@@ -4,10 +4,15 @@ models:
   - name: agg_sales_salespersons_territories
     description: To be completed
     columns:
+      - name: sales_salespersons_period_sk
+        description: To be completed
+        tests:
+          - unique              
+          - not_null
+
       - name: sales_person_fk
         description: To be completed
         tests: 
-          - unique
           - not_null
 
       - name: territory_id
