@@ -38,4 +38,11 @@ sources:
             tests:
               - unique
               - not_null 
-        
+
+      - name: productcosthistory
+        description: to be finished
+        columns:
+          - name: productid
+            tests:
+              - not_null 
+                
