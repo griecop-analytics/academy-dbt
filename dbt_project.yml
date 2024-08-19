@@ -35,8 +35,18 @@ models:
   adventureworkss_dw: # <-- Name of the project. If you renamed your project you have to change this as well
     
     # Applies to all files under models/example/
-    example:
-      materialized: view
+    staging:
+      +materialized: view
+      +schema: stg
+
+    intermediate:
+      +materialized: view 
+      +schema: intermediate
+
+    marts:
+      +materialized: table
+      +schema: marts
+
 
 
 seeds:

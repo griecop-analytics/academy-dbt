@@ -1,19 +1,22 @@
 version: 2
 
 models:
-  - name: dim_credit_cards
+  - name: dim_sales_reasons
     description: To be completed
     columns:
-      - name: credit_card_sk
+      - name: sales_reason_sk
         description: To be completed
         tests: 
           - unique
           - not_null
 
-      - name: credit_card_id
+      - name: order_id
         description: To be completed
         tests:
           - not_null
 
-      - name: credit_card_type
+      - name: sales_reason_name
+        description: To be completed
+
+      - name: sales_reason_type                      
         description: To be completed

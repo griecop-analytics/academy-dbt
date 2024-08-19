@@ -27,8 +27,9 @@ with
     )
     
     , final_query as (
-        select 
-           sales_person_fk 
+        select
+            {{ dbt_utils.generate_surrogate_key(['sales_person_fk', 'order_date', 'territory_id']) }} as sales_salespersons_period_sk 
+           , sales_person_fk 
            , territory_id
            , order_date
            , reference_month_year
