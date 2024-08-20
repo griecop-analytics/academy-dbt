@@ -4,7 +4,7 @@ with
             cast(salesorderid as string) as sales_order_id
             , cast(salesreasonid as string) as sales_reason_id
             --, modifieddate
-        from {{ source('sap', 'salesorderheadersalesreason') }}
+        from {{ source('sap_sales', 'salesorderheadersalesreason') }}
     )
 
 select *

@@ -9,7 +9,7 @@ with
             , cast(isonlystateprovinceflag as string) as is_state_province
             --, rowguid
             --, modifieddate    
-        from {{ source('sap', 'stateprovince') }}
+        from {{ source('sap_person', 'stateprovince') }}
     )
 select *
 from states_provinces_source

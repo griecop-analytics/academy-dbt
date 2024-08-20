@@ -7,7 +7,7 @@ with
             --, expmonth
             --, epyear
             --, modifieddate
-        from {{ source('sap', 'creditcard') }}
+        from {{ source('sap_sales', 'creditcard') }}
     )
 select *
 from credit_cards_source

@@ -5,7 +5,7 @@ with
             , date(startdate) as start_date
             , coalesce(date(enddate), '2029-05-30') as end_date
             , cast(standardcost as numeric) as product_standard_cost
-        from {{ source('sap', 'productcosthistory') }}
+        from {{ source('sap_product', 'productcosthistory') }}
         order by product_id, start_date
     )
 

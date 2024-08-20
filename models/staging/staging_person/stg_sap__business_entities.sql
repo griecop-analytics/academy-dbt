@@ -4,7 +4,7 @@ with
             cast(businessentityid as string) as business_entity_id
             --, rowguid 
             --, modifieddate
-        from {{ source('sap', 'businessentity') }}
+        from {{ source('sap_person', 'businessentity') }}
     )
 select *
 from business_entities_source

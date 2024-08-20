@@ -7,7 +7,7 @@ with
             --, instructions        
             --, rowguid
             --, modifieddate
-        from {{ source('sap', 'productmodel') }}
+        from {{ source('sap_product', 'productmodel') }}
     )
 select *
 from product_models_source

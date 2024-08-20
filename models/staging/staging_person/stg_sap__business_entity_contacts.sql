@@ -6,7 +6,7 @@ with
             , cast(contacttypeid as string) as contact_type_id
             --, modifieddate
             --, rowguide
-        from {{ source('sap', 'businessentitycontact') }}
+        from {{ source('sap_person', 'businessentitycontact') }}
     )
 
 select *

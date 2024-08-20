@@ -5,7 +5,7 @@ with
             , cast(name as string) as sales_reason_name
             , cast(reasontype as string) as sales_reason_type
             --, modifieddate
-        from {{ source('sap', 'salesreason') }}
+        from {{ source('sap_sales', 'salesreason') }}
     )
 
 select *

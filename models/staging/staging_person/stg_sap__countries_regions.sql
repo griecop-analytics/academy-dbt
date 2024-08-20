@@ -4,7 +4,7 @@ with
             cast(countryregioncode as string) as country_region_code
             , cast(name as string) as country_region_name
             --, modifieddate   
-        from {{ source('sap', 'countryregion') }}
+        from {{ source('sap_person', 'countryregion') }}
     )
 select *
 from countries_regions_source

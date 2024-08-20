@@ -26,7 +26,7 @@ with
             --, comment
             --, modifieddate
             --, rowguide
-        from {{ source('sap', 'salesorderheader') }}
+        from {{ source('sap_sales', 'salesorderheader') }}
     )
 select *
 from sales_orders_header_source

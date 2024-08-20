@@ -5,7 +5,7 @@ with
             , cast(name as string) as address_type_name
             --, modifieddate
             --, rowguide
-        from {{ source('sap', 'addresstype') }}
+        from {{ source('sap_person', 'addresstype') }}
     )
 select *
 from address_types_source

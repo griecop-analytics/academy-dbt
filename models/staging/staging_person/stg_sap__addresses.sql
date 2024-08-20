@@ -10,7 +10,7 @@ with
             --, modifieddate
             --, addressline2
             --, spatiallocation      
-        from {{ source('sap', 'address') }}
+        from {{ source('sap_person', 'address') }}
     )
 select *
 from addresses_source
