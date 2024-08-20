@@ -14,7 +14,7 @@ with
             --, demographics  
             --, rowguid  
             --, modifieddate     
-        from {{ source('sap', 'person') }}
+        from {{ source('sap_person', 'person') }}
     )
 select *
 from persons_source

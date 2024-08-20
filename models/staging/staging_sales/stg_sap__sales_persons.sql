@@ -10,7 +10,7 @@ with
             --, saleslastyear
             --, modifieddate
             --, rowguide
-        from {{ source('sap', 'salesperson') }}
+        from {{ source('sap_sales', 'salesperson') }}
     )
 select *
 from sales_persons_source

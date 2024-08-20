@@ -10,7 +10,7 @@ with
                 partition by businessentityid 
                 order by addressid desc)
             as rownum
-        from {{ source('sap', 'businessentityaddress') }}
+        from {{ source('sap_person', 'businessentityaddress') }}
     )
     , removed_duplicates as (
         select

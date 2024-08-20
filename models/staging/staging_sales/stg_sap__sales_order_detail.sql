@@ -11,7 +11,7 @@ with
             --, carriertrackingnumber
             --, modifieddate
             --, rowguide
-        from {{ source('sap', 'salesorderdetail') }}
+        from {{ source('sap_sales', 'salesorderdetail') }}
     )
 select *
 from sales_order_details_source

@@ -7,7 +7,7 @@ with
             , cast(territoryid as string) as territory_id
             --, modifieddate
             --, rowguide
-        from {{ source('sap', 'customer') }}
+        from {{ source('sap_sales', 'customer') }}
     )
 select *
 from address_types_source

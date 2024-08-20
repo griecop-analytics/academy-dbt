@@ -1,6 +1,6 @@
 version: 2
 sources:
-  - name: sap
+  - name: sap_person
     description: SAP source from the company Adventure Works
     schema: sap_adw
     tables:

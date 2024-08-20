@@ -26,7 +26,7 @@ with
             --, discontinueddate
             --, rowguid
             --, modifieddate 
-        from {{ source('sap', 'product') }}
+        from {{ source('sap_product', 'product') }}
     )
 select *
 from products_source

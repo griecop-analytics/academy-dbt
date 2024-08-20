@@ -5,7 +5,7 @@ with
             , cast(name as string) as product_category_name 
             --, rowguid
             --, modifieddate
-        from {{ source('sap', 'productcategory') }}
+        from {{ source('sap_product', 'productcategory') }}
     )
 select *
 from product_categories_source

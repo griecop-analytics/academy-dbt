@@ -7,7 +7,7 @@ with
             --, demographics
             --, modifieddate
             --, rowguide
-        from {{ source('sap', 'store') }}
+        from {{ source('sap_sales', 'store') }}
     )
 select *
 from address_types_source

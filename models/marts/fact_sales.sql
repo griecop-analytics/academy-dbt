@@ -42,9 +42,9 @@ with
             , int_sales.is_online_order
             , int_sales.order_date
             , dim_products.product_sk as product_fk
-            , dim_products.product_id
             , int_sales.order_quantity
             , int_sales.product_unit_price
+            , int_sales.product_standard_cost
             , dim_products.product_standardcost
             , int_sales.unit_price_discount_pct
             , int_sales.order_subtotal
@@ -80,6 +80,7 @@ with
             , order_date
             , order_quantity
             , product_unit_price
+            , product_standard_cost
             , unit_price_discount_pct
             , order_subtotal
             , order_tax_amount
@@ -126,10 +127,12 @@ with
             , order_date
             , order_quantity
             , product_unit_price
+            , product_standard_cost
             , unit_price_discount_pct
             , net_sales
             , pondered_tax_amount
             , pondered_freight
+            , (product_standard_cost * order_quantity) as total_standard_cost
             , (net_sales + pondered_tax_amount + pondered_freight) as due_sales
             , (order_quantity * product_unit_price + pondered_tax_amount + pondered_freight) as gross_sales
             , is_first_purchase
@@ -137,11 +140,21 @@ with
         from included_metrics
     )
 
+    , included_new_metrics as (
+        select
+            *
+            , (gross_sales - total_standard_cost) as gross_profit
+            , (net_sales - total_standard_cost - pondered_freight - pondered_tax_amount) as net_profit
+            , ((gross_sales - total_standard_cost) / gross_sales * 100) as gross_margin
+            , ((net_sales - total_standard_cost - pondered_freight - pondered_tax_amount)/net_sales * 100) as net_margin
+        from selected_columns
+    )
+
     , created_sk as (
         select
             {{ dbt_utils.generate_surrogate_key(['order_id', 'order_detail_id']) }} as sales_sk
             , *
-        from selected_columns
+        from included_new_metrics
     )
 
 select *

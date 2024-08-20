@@ -11,7 +11,7 @@ with
             --, costlastyear
             --, rowguid
             --, modifieddate
-        from {{ source('sap', 'salesterritory') }}
+        from {{ source('sap_sales', 'salesterritory') }}
     )
 select *
 from sales_territory_source
