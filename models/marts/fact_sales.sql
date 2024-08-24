@@ -29,11 +29,16 @@ with
         from {{ ref('dim_sales_reasons') }}
     )
 
+    , dim_territories as (
+        select *
+        from {{ ref('dim_territories') }}
+    )
+
     , join_tables as (
         select
             int_sales.order_id
             , int_sales.order_detail_id
-            , int_sales.territory_id
+            , dim_territories.territory_sk as territory_fk
             , dim_customers.customer_sk as customer_fk
             , dim_sales_persons.sales_person_sk as sales_person_fk
             , dim_credit_cards.credit_card_sk as credit_card_fk
@@ -62,6 +67,8 @@ with
             int_sales.sales_person_id = dim_sales_persons.sales_person_id
         left join dim_sales_reasons on
             int_sales.order_id = dim_sales_reasons.order_id
+        left join dim_territories on   
+            int_sales.territory_id = dim_territories.territory_id
 
     )
 
@@ -69,7 +76,7 @@ with
         select
             order_id
             , order_detail_id
-            , territory_id
+            , territory_fk
             , customer_fk
             , sales_person_fk
             , credit_card_fk
@@ -116,7 +123,7 @@ with
         select
             order_id
             , order_detail_id
-            , territory_id
+            , territory_fk
             , customer_fk
             , sales_person_fk
             , credit_card_fk
