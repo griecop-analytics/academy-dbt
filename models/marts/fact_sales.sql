@@ -45,7 +45,6 @@ with
             , int_sales.order_quantity
             , int_sales.product_unit_price
             , int_sales.product_standard_cost
-            , dim_products.product_standardcost
             , int_sales.unit_price_discount_pct
             , int_sales.order_subtotal
             , int_sales.order_tax_amount

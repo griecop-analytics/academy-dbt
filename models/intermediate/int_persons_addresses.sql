@@ -33,10 +33,9 @@ with
             , int_addresses.street_address
             , int_addresses.postal_code
         from stg_persons
-        left join int_addresses on
-            stg_persons.business_entity_id = int_addresses.business_entity_id
+        left join int_addresses 
+            on stg_persons.business_entity_id = int_addresses.business_entity_id
     )
-
 
 select *
 from join_tables

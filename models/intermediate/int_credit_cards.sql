@@ -20,8 +20,8 @@ with
             end as payment_method
             , coalesce(credit_card_type, 'No credit card used') as credit_card_type
         from stg_sales_order
-        left join stg_credit_cards on  
-            stg_sales_order.credit_card_id = stg_credit_cards.credit_card_id
+        left join stg_credit_cards  
+            on stg_sales_order.credit_card_id = stg_credit_cards.credit_card_id
     )
 
 select *

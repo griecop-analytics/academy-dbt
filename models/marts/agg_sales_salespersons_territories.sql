@@ -7,7 +7,7 @@ with
     , agg_columns as (
         select
             fact_sales.sales_person_fk
-            , fact_sales.territory_fk
+            , fact_sales.territory_id
             , count(distinct fact_sales.order_id) as total_orders
             , fact_sales.order_date
             , sum(fact_sales.order_quantity) as total_products
@@ -16,7 +16,7 @@ with
             , sum(fact_sales.due_sales) as due_sales_total
         from fact_sales
         where sales_person_fk is not null
-        group by sales_person_fk, territory_fk, order_date
+        group by sales_person_fk, territory_id, order_date
     )
 
     , correct_reference_month as (
@@ -28,9 +28,9 @@ with
     
     , final_query as (
         select
-            {{ dbt_utils.generate_surrogate_key(['sales_person_fk', 'order_date', 'territory_fk']) }} as sales_salespersons_period_sk 
+            {{ dbt_utils.generate_surrogate_key(['sales_person_fk', 'order_date', 'territory_id']) }} as sales_salespersons_period_sk 
            , sales_person_fk 
-           , territory_fk
+           , territory_id
            , order_date
            , reference_month_year
            , total_orders

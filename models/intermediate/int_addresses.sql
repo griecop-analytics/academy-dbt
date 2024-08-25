@@ -39,14 +39,14 @@ with
             , stg_addresses.address_city
             , stg_addresses.postal_code
         from stg_business_entity_addresses
-        left join stg_addresses on
-            stg_business_entity_addresses.address_id = stg_addresses.address_id
-        left join stg_address_types on
-            stg_business_entity_addresses.address_type_id = stg_address_types.address_type_id
-        left join stg_state_provinces on
-            stg_addresses.state_province_id = stg_state_provinces.state_province_id
-        left join stg_country_regions on
-            stg_state_provinces.country_region_code = stg_country_regions.country_region_code
+        left join stg_addresses 
+            on stg_business_entity_addresses.address_id = stg_addresses.address_id
+        left join stg_address_types 
+            on stg_business_entity_addresses.address_type_id = stg_address_types.address_type_id
+        left join stg_state_provinces 
+            on stg_addresses.state_province_id = stg_state_provinces.state_province_id
+        left join stg_country_regions 
+            on stg_state_provinces.country_region_code = stg_country_regions.country_region_code
     )
 
 select *

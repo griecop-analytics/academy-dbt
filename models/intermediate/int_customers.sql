@@ -36,15 +36,14 @@ with
             , int_addresses.state_province_name
             , int_addresses.address_city
         from stg_customers
-        left join int_persons on
-            stg_customers.person_id = int_persons.person_id
-        left join stg_stores on
-            stg_customers.store_id = stg_stores.store_id
-        left join int_addresses on 
-            stg_customers.person_id = int_addresses.business_entity_id or
-            stg_customers.store_id = int_addresses.business_entity_id 
+        left join int_persons 
+            on stg_customers.person_id = int_persons.person_id
+        left join stg_stores 
+            on stg_customers.store_id = stg_stores.store_id
+        left join int_addresses  
+            on stg_customers.person_id = int_addresses.business_entity_id 
+            or stg_customers.store_id = int_addresses.business_entity_id 
     )
-
 
 select *
 from join_tables
