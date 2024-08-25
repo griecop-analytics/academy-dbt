@@ -1,11 +1,12 @@
 version: 2
+
 sources:
   - name: sap_person
-    description: SAP source from the company Adventure Works
+    description: Sources from the SAP system of Adventure Works within the Person schema.
     schema: sap_adw
     tables:
       - name: address
-        description: to be finished
+        description: Street address information for customers, employees and stores.
         columns:
           - name: addressid
             tests:
@@ -13,7 +14,7 @@ sources:
               - not_null 
 
       - name: stateprovince
-        description: to be finished
+        description: Lookup table for states and provinces.
         columns:
           - name: stateprovinceid
             tests:
@@ -24,7 +25,7 @@ sources:
               - not_null 
 
       - name: countryregion
-        description: to be finished
+        description: A lookup table that contains standard codes for countries and regions.
         columns:
           - name: countryregioncode
             tests:
@@ -32,14 +33,14 @@ sources:
               - not_null 
 
       - name: businessentityaddress
-        description: to be finished
+        description: Table linking customers, stores, and employees to their corresponding addresses.
         columns:
           - name: businessentityid
             tests:
               - not_null 
 
       - name: addresstype
-        description: to be finished
+        description: Provides the types of addresses listed in the Address table.
         columns:
           - name: addresstypeid
             tests:
@@ -47,7 +48,7 @@ sources:
               - not_null 
 
       - name: person
-        description: to be finished
+        description: Individuals associated with AdventureWorks, including all employees, customer contacts, and stores contacts.
         columns:
           - name: businessentityid
             tests:
@@ -55,7 +56,7 @@ sources:
               - not_null 
 
       - name: businessentitycontact
-        description: to be finished
+        description: Cross-reference table linking stores, vendors, and employees to individuals.
         columns:
           - name: businessentityid
             tests:
@@ -66,17 +67,9 @@ sources:
               - not_null
 
       - name: contacttype
-        description: to be finished
+        description: Table that lists the various types of contacts for business entities.
         columns:
           - name: contacttypeid
             tests:
               - unique
               - not_null              
-
-      - name: businessentity
-        description: to be finished
-        columns:
-          - name: businessentityid
-            tests:
-              - unique
-              - not_null 
