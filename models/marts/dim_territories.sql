@@ -19,8 +19,8 @@ with
             , int_addresses.state_province_code
             , int_addresses.state_province_name
         from stg_territories
-        left join int_addresses on   
-            stg_territories.territory_id = int_addresses.territory_id
+        left join int_addresses 
+            on stg_territories.territory_id = int_addresses.territory_id
     )
 
     , create_sk as (
@@ -32,4 +32,3 @@ with
 
 select * 
 from create_sk
-order by territory_id

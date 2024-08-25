@@ -2,36 +2,36 @@ version: 2
 
 models:
   - name: dim_sales_persons
-    description: To be completed
+    description: Contains detailed information about sales persons.
     columns:
       - name: sales_person_sk
-        description: To be completed
+        description: Surrogate key for uniquely identifying sales persons.
         tests: 
           - unique
           - not_null
 
       - name: sales_person_id
-        description: To be completed
+        description: Unique identifier for each sales person.
         tests:
           - not_null
 
       - name: full_name
-        description: To be completed
+        description: Sales person name.
 
       - name: person_type
-        description: To be completed
+        description: Person types where SC=Store Contact, IN=Individual customer, SP=Sales person, EM=Employee, VC=Vendor contact, GC=General contact
 
       - name: commission_pct
-        description: To be completed
+        description: Percentage of commission earned by the sales person.
 
       - name: territory_id
-        description: To be completed
+        description: Territory identifier.
 
       - name: territory_name
-        description: To be completed
+        description: Territory description.
 
       - name: country_region_code
-        description: To be completed
+        description: Code representing the country or region.
 
       - name: territory_group
-        description: To be completed
+        description: Territory Continent.

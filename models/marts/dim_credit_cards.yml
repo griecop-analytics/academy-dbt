@@ -2,22 +2,22 @@ version: 2
 
 models:
   - name: dim_credit_cards
-    description: To be completed
+    description: Information about credit cards related in each purchase
     columns:
       - name: credit_card_sk
-        description: To be completed
+        description: Surrogate key for each credit card.
         tests: 
           - unique
           - not_null
 
       - name: order_id
-        description: To be completed
+        description: Identifier for the associated order.
 
       - name: credit_card_id
-        description: To be completed
+        description: Unique credit card identifier.
 
       - name: payment_method
-        description: To be completed
+        description: Payment method used.
 
       - name: credit_card_type
-        description: To be completed
+        description: Type of credit card.

@@ -14,7 +14,6 @@ with
             , product_model_name
             , product_subcategory_name
             , product_category_name
-            , product_standardcost 
         from int_products
     )
 

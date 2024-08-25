@@ -2,21 +2,21 @@ version: 2
 
 models:
   - name: dim_sales_reasons
-    description: To be completed
+    description: Contains details about sales reason classifications.
     columns:
       - name: sales_reason_sk
-        description: To be completed
+        description: Surrogate key for uniquely identifying sales reasons.
         tests: 
           - unique
           - not_null
 
       - name: order_id
-        description: To be completed
+        description: Unique identifier for each order.
         tests:
           - not_null
 
       - name: sales_reason_name
-        description: To be completed
+        description: Description of the sales reason.
 
       - name: sales_reason_type                      
-        description: To be completed
+        description: classification of the sales reason.

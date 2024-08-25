@@ -2,39 +2,37 @@ version: 2
 
 models:
   - name: dim_products
-    description: To be completed
+    description: Contains information about Adventure Works products, including their hierarchical categorization such as categories and subcategories.
     columns:
       - name: product_sk
-        description: To be completed
+        description: Surrogate key for the products table.
         tests: 
           - unique
           - not_null
 
       - name: product_id
-        description: To be completed
+        description: Original product identifier
         tests:
           - not_null
 
       - name: product_subcategory_id
-        description: To be completed
+        description: Product subcategory identifier
 
       - name: product_category_id
-        description: To be completed
+        description: Product category identifier
 
       - name: product_model_id
-        description: To be completed
+        description: Product model identifier
 
       - name: product_name
-        description: To be completed
+        description: Product description
 
       - name: product_model_name
-        description: To be completed
+        description: Description of the product model.
 
       - name: product_subcategory_name
-        description: To be completed
+        description: Description of the product subcategory.
 
       - name: product_category_name
-        description: To be completed
+        description: Description of the product category
 
-      - name: product_standardcost
-        description: To be completed
