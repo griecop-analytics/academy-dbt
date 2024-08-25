@@ -7,11 +7,7 @@ with
             , cast(name as string) as product_name
             , cast(productnumber as string) as product_number
             , cast(makeflag as string) as is_product_manufactured
-            --, color 
-            --, safetystocklevel 
-            --, reorderpoint
             , cast(standardcost as decimal) as product_standardcost
-            --, listprice 
             , cast(size as string) as product_size
             , cast(sizeunitmeasurecode as string) as size_unitmeasure_code
             , cast(weightunitmeasurecode as string) as weight_unitmeasure_code
@@ -23,9 +19,6 @@ with
             , date(sellstartdate) as product_sellstart_date
             , date(sellenddate) as product_sellend_date
             , cast(finishedgoodsflag as string) as is_product_salable
-            --, discontinueddate
-            --, rowguid
-            --, modifieddate 
         from {{ source('sap_product', 'product') }}
     )
 select *

@@ -18,14 +18,6 @@ with
             , cast(taxamt as numeric) as order_tax_amount
             , cast(freight as numeric) as order_freight
             , cast(totaldue as numeric) as order_total_due
-            --, revisionnumber
-            --, purchaseordernumber
-            --, accountnuber
-            --, creditcardapprovalcode
-            --, currencyrateid
-            --, comment
-            --, modifieddate
-            --, rowguide
         from {{ source('sap_sales', 'salesorderheader') }}
     )
 select *

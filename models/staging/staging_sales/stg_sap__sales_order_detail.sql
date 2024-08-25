@@ -7,10 +7,6 @@ with
             , cast(orderqty as integer) as order_quantity
             , cast(unitprice as numeric) as product_unit_price
             , cast(unitpricediscount as numeric) as unit_price_discount_pct
-            --, specialofferid
-            --, carriertrackingnumber
-            --, modifieddate
-            --, rowguide
         from {{ source('sap_sales', 'salesorderdetail') }}
     )
 select *

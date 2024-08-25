@@ -5,8 +5,6 @@ with
             , cast(personid as string) as person_id
             , cast(storeid as string) as store_id
             , cast(territoryid as string) as territory_id
-            --, modifieddate
-            --, rowguide
         from {{ source('sap_sales', 'customer') }}
     )
 select *

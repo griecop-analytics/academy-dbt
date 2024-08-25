@@ -4,8 +4,6 @@ with
             cast(productsubcategoryid as string) as product_subcategory_id
             , cast(productcategoryid as string) as product_category_id
             , cast(name as string) as product_subcategory_name            
-            --, rowguid
-            --, modifieddate
         from {{ source('sap_product', 'productsubcategory') }}
     )
 select *

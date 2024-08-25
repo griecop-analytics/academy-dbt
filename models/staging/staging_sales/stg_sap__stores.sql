@@ -4,9 +4,6 @@ with
             cast(businessentityid as string) as store_id
             , cast(name as string) as store_name
             , cast(salespersonid as string) as sales_person_id
-            --, demographics
-            --, modifieddate
-            --, rowguide
         from {{ source('sap_sales', 'store') }}
     )
 select *

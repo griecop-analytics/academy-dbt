@@ -3,8 +3,6 @@ with
         select
             cast(productcategoryid as string) as product_category_id
             , cast(name as string) as product_category_name 
-            --, rowguid
-            --, modifieddate
         from {{ source('sap_product', 'productcategory') }}
     )
 select *
