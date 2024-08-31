@@ -1,23 +1,28 @@
 with
-    stg_customers as(
+    stg_customers as ( 
         select *
         from {{ ref('stg_sap__customers')}}
         where person_id is not null
     )
 
-    , int_persons as(
+    , int_persons as (
         select *
         from {{ ref('int_persons_addresses') }}
     )
 
-    , int_addresses as(
+    , int_addresses as (
         select *
         from {{ ref('int_addresses') }}
     )
 
-    , stg_stores as(
+    , stg_stores as (
         select *
         from {{ ref('stg_sap__stores') }}
+    )
+
+    , stg_territories as (
+        select *
+        from {{ ref('stg_sap__sales_territories') }}
     )
 
     , join_tables as (
@@ -30,6 +35,8 @@ with
             , int_persons.full_name
             , int_persons.person_type
             , stg_customers.territory_id
+            , stg_territories.territory_group
+            , stg_territories.territory_name
             , int_addresses.country_region_code
             , int_addresses.country_region_name
             , int_addresses.state_province_code
@@ -43,6 +50,8 @@ with
         left join int_addresses  
             on stg_customers.person_id = int_addresses.business_entity_id 
             or stg_customers.store_id = int_addresses.business_entity_id 
+        left join stg_territories 
+            on stg_customers.territory_id = stg_territories.territory_id
     )
 
 select *

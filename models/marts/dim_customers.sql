@@ -17,6 +17,12 @@ with
             end as customer_name
             , person_type
             , territory_id
+            , territory_group
+            , case 
+                when country_region_code = 'US'
+                    then concat(country_region_code, ' - ' , territory_name)
+                else territory_name
+            end as territory_name
             , country_region_code
             , country_region_name
             , state_province_code
