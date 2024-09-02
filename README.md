@@ -32,8 +32,6 @@ divididas em 5 schemas:
 - Production (produção)
 - Purchasing (compras)
 
-![Diagrama banco de dados transacional](https://drive.google.com/file/d/1ntVGGWODYUuMge4GzrU66pGlwybdafHb/view?usp=sharing)
-
 Você pode acessar o diagrama completo cliando [aqui](https://drive.google.com/file/d/1ntVGGWODYUuMge4GzrU66pGlwybdafHb/view?usp=sharing).
 
 ## Infraestrutura Moderna de Dados
