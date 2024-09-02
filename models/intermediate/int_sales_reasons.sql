@@ -21,10 +21,10 @@ with
             , stg_sales_reasons.sales_reason_name
             , stg_sales_reasons.sales_reason_type
         from stg_orders
-        left join stg_order_sales_reasons on
-            stg_orders.order_id = stg_order_sales_reasons.sales_order_id
-        left join stg_sales_reasons on      
-            stg_order_sales_reasons.sales_reason_id = stg_sales_reasons.sales_reason_id
+        left join stg_order_sales_reasons 
+            on stg_orders.order_id = stg_order_sales_reasons.sales_order_id
+        left join stg_sales_reasons      
+            on stg_order_sales_reasons.sales_reason_id = stg_sales_reasons.sales_reason_id
     )
 
     , aggregate_columns as (

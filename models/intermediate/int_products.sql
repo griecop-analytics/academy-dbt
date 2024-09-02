@@ -40,14 +40,14 @@ with
             , stg_products.product_sellend_date
             , stg_products.is_product_salable
         from stg_products
-        left join stg_models on
-            stg_products.product_model_id = stg_models.product_model_id
-        left join stg_subcategories on
-            stg_products.product_subcategory_id = stg_subcategories.product_subcategory_id
-        left join stg_categories on
-            stg_subcategories.product_category_id = stg_categories.product_category_id
-        )
+        left join stg_models 
+            on stg_products.product_model_id = stg_models.product_model_id
+        left join stg_subcategories 
+            on stg_products.product_subcategory_id = stg_subcategories.product_subcategory_id
+        left join stg_categories 
+            on stg_subcategories.product_category_id = stg_categories.product_category_id
+        where stg_products.is_product_salable = 'true'
+    )
 
 select *
 from join_tables
-where is_product_salable = 'true'

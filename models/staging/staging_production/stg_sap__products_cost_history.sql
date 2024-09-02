@@ -8,6 +8,5 @@ with
         from {{ source('sap_product', 'productcosthistory') }}
         order by product_id, start_date
     )
-
 select *
 from product_standard_cost

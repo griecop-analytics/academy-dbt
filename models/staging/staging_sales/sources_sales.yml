@@ -1,11 +1,11 @@
 version: 2
 sources:
   - name: sap_sales
-    description: SAP source from the company Adventure Works
+    description: Sources from the SAP system of Adventure Works within the Sales schema.
     schema: sap_adw
     tables:
       - name: store
-        description: to be finished
+        description: Table containing information about retail and distribution stores.
         columns:
           - name: businessentityid
             tests:
@@ -13,7 +13,7 @@ sources:
               - not_null 
 
       - name: customer
-        description: to be finished
+        description:  Includes details about current customers. Refer to the Person and Store tables.
         columns:
           - name: customerid
             tests:
@@ -21,7 +21,7 @@ sources:
               - not_null 
 
       - name: salesperson
-        description: to be finished
+        description: Sales representative information.
         columns:
           - name: businessentityid
             tests:
@@ -29,7 +29,7 @@ sources:
               - not_null 
 
       - name: creditcard
-        description: to be finished
+        description: Table containing Credit cards types.
         columns:
           - name: creditcardid
             tests:
@@ -37,14 +37,14 @@ sources:
               - not_null
 
       - name: salesorderheadersalesreason
-        description: to be finished
+        description: Contains reasons for sales orders as recorded in the sales order header.
         columns:
           - name: salesorderid
             tests:
               - not_null
 
       - name: salesreason
-        description: to be finished
+        description: Contains descriptions of the reasons for sales transactions.
         columns:
           - name: salesreasonid
             tests:
@@ -52,7 +52,7 @@ sources:
               - not_null 
 
       - name: salesorderheader
-        description: to be finished
+        description: Contains summary information for sales orders,
         columns:
           - name: salesorderid
             tests:
@@ -60,7 +60,7 @@ sources:
               - not_null 
       
       - name: salesorderdetail
-        description: to be finished
+        description: Contains details of each sales order item, including quantities and product values.
         columns:
           - name: salesorderdetailid
             tests:
@@ -68,7 +68,7 @@ sources:
               - not_null 
 
       - name: salesterritory
-        description: to be finished
+        description: Contains information about geographic and regional details.
         columns:
           - name: territoryid
             tests:

@@ -3,8 +3,6 @@ with
         select
             cast(addresstypeid as string) as address_type_id
             , cast(name as string) as address_type_name
-            --, modifieddate
-            --, rowguide
         from {{ source('sap_person', 'addresstype') }}
     )
 select *

@@ -2,39 +2,39 @@ version: 2
 
 models:
   - name: agg_sales_salespersons_territories
-    description: To be completed
+    description: Aggregated sales data by salesperson and date, including total sales and performance metrics.
     columns:
       - name: sales_salespersons_period_sk
-        description: To be completed
+        description: Surrogate key for uniquely identifying each record.
         tests:
           - unique              
           - not_null
 
       - name: sales_person_fk
-        description: To be completed
+        description: Foreign key linking to the salesperson record.
         tests: 
           - not_null
 
       - name: territory_id
-        description: To be completed 
+        description: Unique identifier for the sales territory.
 
       - name: order_date
-        description: To be completed 
+        description: Sales order creation dates.
 
       - name: reference_month_year
-        description: To be completed 
+        description: Abbreviation of the corresponding month and year. 
 
       - name: total_orders
-        description: To be completed 
+        description: Total number of orders by salesperson during the period.
 
       - name: total_products
-        description: To be completed 
+        description: Total number of products sold by salesperson during the period. 
 
       - name: net_sales_total
-        description: To be completed 
+        description: Total net sales amount for the period.
 
       - name: gross_sales_total
-        description: To be completed 
+        description: Total gross sales amount for the period.
 
       - name: due_sales_total
-        description: To be completed 
+        description: Total amount paid by the customer during the period.

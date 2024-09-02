@@ -2,74 +2,95 @@ version: 2
 
 models:
   - name: fact_sales
-    description: To be completed
+    description: Contains detailed transactional data for sales, including sales amounts, quantities, and related metrics.
     columns:
       - name: sales_sk
-        description: To be completed
+        description: Surrogate key for uniquely identifying each sales transaction.
         tests: 
           - unique
           - not_null
 
       - name: order_id
-        description: To be completed
+        description: Unique identifier for each sales order.
         tests:
           - not_null            
 
       - name: order_detail_id
-        description: To be completed
+        description: Unique identifier for each transation in the order.
         tests:
           - not_null  
 
       - name: territory_id
-        description: To be completed
+        description: Foreign key linking to the territory record.
 
       - name: customer_fk
-        description: To be completed
+        description: Foreign key linking to the customer record.
 
       - name: sales_person_fk
-        description: To be completed
+        description: Foreign key linking to the salesperson record.
 
       - name: credit_card_fk
-        description: To be completed
+        description: Foreign key linking to the credit card record.
+
+      - name: sales_reason_fk
+        description: Foreign key linking to the sales reason record.
 
       - name: product_fk
-        description: To be completed
+        description: Foreign key linking to the product record.
 
       - name: order_status
-        description: To be completed
+        description: Indicates the current status of the sales order.
 
       - name: is_online_order
-        description: To be completed
+        description: Indicates if the sale was placed online (True) or for a resale (False).
 
       - name: order_date
-        description: To be completed
+        description: Sales order creation dates.
 
       - name: order_quantity
-        description: To be completed
+        description: Quantity for each product.
 
       - name: product_unit_price
-        description: To be completed
+        description: Unit price of the related product.  
+
+      - name: product_standard_cost
+        description: Standard cost of the product. 
 
       - name: unit_price_discount_pct
-        description: To be completed
+        description: Unit price discount typically related to a special offer on the order detail.
 
       - name: net_sales
-        description: To be completed
+        description: Total sales amount after discounts.
 
       - name: pondered_tax_amount
-        description: To be completed
+        description: Tax amount adjusted based on the sales value and quantity.
 
       - name: pondered_freight
-        description: To be completed
+        description: Freight cost adjusted based on the sales value and quantity.
+
+      - name: total_standard_cost
+        description: Represents the total standard cost for each product in the order.
 
       - name: due_sales
-        description: To be completed
+        description: Total amount paid by the customer.
 
       - name: gross_sales
-        description: To be completed
+        description: Total sales amount before any discount.
 
       - name: is_first_purchase
-        description: To be completed
+        description: Indicates if this is the customer's first purchase (True) or not (False).
 
       - name: days_since_last_purchase
-        description: To be completed
+        description: Number of days since the customer's last purchase.
+
+      - name: gross_profit
+        description: The difference between gross sales and total standard cost.
+
+      - name: net_profit
+        description: The difference between net sales and total standard cost.
+
+      - name: gross_margin
+        description: The percentage of gross profit relative to gross sales.
+
+      - name: net_margin
+        description: The percentage of net profit relative to net sales.

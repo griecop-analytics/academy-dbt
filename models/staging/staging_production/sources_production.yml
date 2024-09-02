@@ -1,11 +1,11 @@
 version: 2
 sources:
   - name: sap_product
-    description: SAP source from the company Adventure Works
+    description: Sources from the SAP system of Adventure Works within the Production schema.
     schema: sap_adw
     tables:
       - name: product
-        description: to be finished
+        description: products that are either sold directly or used in the production of other products.
         columns:
           - name: productid
             tests:
@@ -13,7 +13,7 @@ sources:
               - not_null 
 
       - name: productsubcategory
-        description: to be finished
+        description: Product subcategories descrscription.
         columns:
           - name: productsubcategoryid
             tests:
@@ -24,7 +24,7 @@ sources:
               - not_null 
 
       - name: productcategory
-        description: to be finished
+        description: The highest level of product classification.
         columns:
           - name: productcategoryid
             tests:
@@ -32,7 +32,7 @@ sources:
               - not_null 
 
       - name: productmodel
-        description: to be finished
+        description: Product model classification.
         columns:
           - name: productmodelid
             tests:
@@ -40,7 +40,7 @@ sources:
               - not_null 
 
       - name: productcosthistory
-        description: to be finished
+        description: Table that records historical cost information for each product.
         columns:
           - name: productid
             tests:

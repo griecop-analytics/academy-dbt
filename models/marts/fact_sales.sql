@@ -45,24 +45,22 @@ with
             , int_sales.order_quantity
             , int_sales.product_unit_price
             , int_sales.product_standard_cost
-            , dim_products.product_standardcost
             , int_sales.unit_price_discount_pct
             , int_sales.order_subtotal
             , int_sales.order_tax_amount
             , int_sales.order_freight
-            , int_sales.order_quantity * int_sales.product_unit_price * (1 - int_sales.unit_price_discount_pct / 100) as net_sales
+            , order_quantity * product_unit_price * (1 - unit_price_discount_pct / 100) as net_sales
         from int_sales
-        left join dim_credit_cards on
-            int_sales.order_id = dim_credit_cards.order_id
-        left join dim_customers on  
-            int_sales.customer_id = dim_customers.customer_id
-        left join dim_products on 
-            int_sales.product_id = dim_products.product_id
-        left join dim_sales_persons on
-            int_sales.sales_person_id = dim_sales_persons.sales_person_id
-        left join dim_sales_reasons on
-            int_sales.order_id = dim_sales_reasons.order_id
-
+        left join dim_credit_cards 
+            on int_sales.order_id = dim_credit_cards.order_id
+        left join dim_customers   
+            on int_sales.customer_id = dim_customers.customer_id
+        left join dim_products  
+            on int_sales.product_id = dim_products.product_id
+        left join dim_sales_persons 
+            on int_sales.sales_person_id = dim_sales_persons.sales_person_id
+        left join dim_sales_reasons 
+            on int_sales.order_id = dim_sales_reasons.order_id
     )
 
     , included_metrics as (
@@ -75,20 +73,33 @@ with
             , credit_card_fk
             , sales_reason_fk
             , product_fk
-            , order_status
+            , case
+                when order_status = '1'
+                    then 'In process'
+                when order_status = '2' 
+                    then 'Approved'
+                when order_status = '3'
+                    then 'Backordered'
+                when order_status = '4'
+                    then 'Rejected'
+                when order_status = '5'
+                    then 'Shipped'
+                when order_status = '6'
+                    then 'Cancelled'
+            end as order_status
             , is_online_order
             , order_date
             , order_quantity
             , product_unit_price
             , product_standard_cost
             , unit_price_discount_pct
-            , order_subtotal
             , order_tax_amount
             , order_freight
-            , order_quantity * product_unit_price * (1 - unit_price_discount_pct / 100) as net_sales
+            , order_subtotal
+            , net_sales
             , sum(order_quantity) over(partition by order_id) as total_order_quantity
-            , (order_quantity * product_unit_price * (1 - unit_price_discount_pct / 100)/order_subtotal * order_tax_amount) as pondered_tax_amount
-            , (order_quantity * product_unit_price * (1 - unit_price_discount_pct / 100)/order_subtotal * order_freight) as pondered_freight
+            , (net_sales/order_subtotal) * order_tax_amount as pondered_tax_amount
+            , (net_sales/order_subtotal) * order_freight as pondered_freight
             , case 
                 when order_date = first_value(order_date) over (
                     partition by customer_fk
@@ -146,7 +157,8 @@ with
             , (gross_sales - total_standard_cost) as gross_profit
             , (net_sales - total_standard_cost - pondered_freight - pondered_tax_amount) as net_profit
             , ((gross_sales - total_standard_cost) / gross_sales * 100) as gross_margin
-            , ((net_sales - total_standard_cost - pondered_freight - pondered_tax_amount)/net_sales * 100) as net_margin
+            , ((net_sales - total_standard_cost - pondered_freight - pondered_tax_amount)/net_sales * 100)
+            as net_margin
         from selected_columns
     )
 

@@ -2,46 +2,46 @@ version: 2
 
 models:
   - name: dim_dates
-    description: To be completed
+    description: Contains details for each day within the period.
     columns:
       - name: metric_date
-        description: To be completed
+        description: Unique date crecord.
         tests: 
           - unique
           - not_null
 
       - name: week_day
-        description: To be completed
+        description: Number representing the day of the week.
 
       - name: day_name
-        description: To be completed
+        description: Description of the day of the week
 
       - name: month_number
-        description: To be completed
+        description: Number representing the month
 
       - name: month_name
-        description: To be completed
+        description: Description of the month
 
       - name: month_abrev
-        description: To be completed
+        description: Abbreviation for the month.
 
       - name: quarter
-        description: To be completed
+        description: Number representing the quarter
 
       - name: quarter_name
-        description: To be completed
+        description: Abbreviation for the quarter
 
       - name: semester
-        description: To be completed
+        description: Number representing the semester
 
       - name: semester_name
-        description: To be completed
+        description: Abbreviation for the semester
 
       - name: date_year
-        description: To be completed
+        description: Year of the metric date
 
       - name: day_month
-        description: To be completed
+        description: Day and abbreviation for the month.
 
       - name: month_year
-        description: To be completed
+        description: Abbreviation for the month and year

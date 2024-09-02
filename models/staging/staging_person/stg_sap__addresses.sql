@@ -5,11 +5,7 @@ with
             , cast(stateprovinceid as string) as state_province_id
             , cast(addressline1 as string) as street_address
             , cast(city as string) as address_city
-            , cast(postalcode as string) as postal_code
-            --, rowguid 
-            --, modifieddate
-            --, addressline2
-            --, spatiallocation      
+            , cast(postalcode as string) as postal_code     
         from {{ source('sap_person', 'address') }}
     )
 select *

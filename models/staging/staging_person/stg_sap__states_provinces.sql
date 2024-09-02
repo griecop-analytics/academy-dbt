@@ -6,9 +6,7 @@ with
             , cast(stateprovincecode as string) as state_province_code
             , cast(countryregioncode as string) as country_region_code
             , cast(name as string) as state_province_name
-            , cast(isonlystateprovinceflag as string) as is_state_province
-            --, rowguid
-            --, modifieddate    
+            , cast(isonlystateprovinceflag as string) as is_state_province   
         from {{ source('sap_person', 'stateprovince') }}
     )
 select *

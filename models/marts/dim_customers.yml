@@ -2,49 +2,49 @@ version: 2
 
 models:
   - name: dim_customers
-    description: To be completed
+    description: Contains detailed information about customers, including contact details and demographics.
     columns:
       - name: customer_sk
-        description: To be completed
+        description: Surrogate key for uniquely identifying each customer.
         tests: 
           - unique
           - not_null
 
       - name: customer_id
-        description: To be completed
+        description: Unique identifier for each Customer.
         tests:
           - not_null
 
       - name: person_id
-        description: To be completed
+        description: Unique identifier for each Person.
 
       - name: store_id
-        description: To be completed
+        description: Unique identifier for each Store
 
       - name: sales_person_id
-        description: To be completed
+        description: Unique identifier for each Salesperson.
 
       - name: customer_name
-        description: To be completed
+        description: Name of the customer, which could be an individual's name or a store name.
 
       - name: person_type
-        description: To be completed
+        description: Person types where SC=Store Contact, IN=Individual customer.
 
       - name: territory_id
-        description: To be completed
+        description: Territory identifier.
 
       - name: country_region_code
-        description: To be completed
+        description: Code representing the country or region.
         
       - name: country_region_name
-        description: To be completed
+        description: Coutry or region name
         
       - name: state_province_code
-        description: To be completed
+        description: Code representing the state or province
         
       - name: state_province_name
-        description: To be completed
+        description: State or province description
         
       - name: address_city
-        description: To be completed
+        description: City where the customer is registered.
         
